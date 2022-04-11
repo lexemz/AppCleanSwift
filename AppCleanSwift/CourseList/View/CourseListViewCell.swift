@@ -7,20 +7,27 @@
 
 import UIKit
 
-class CourseListViewCell: UITableViewCell {
-    func configure(with course: Course) {
+protocol CellModelRepresentable {
+    var viewModel: CourseCellViewModelProtocol? { get }
+}
+
+class CourseListViewCell: UITableViewCell, CellModelRepresentable {
+    var viewModel: CourseCellViewModelProtocol? {
+        didSet {
+            updateView()
+        }
+    }
+    
+    private func updateView() {
+        guard let viewModel = viewModel as? CourseCellViewModel else { return }
         var content = defaultContentConfiguration()
         
-        content.text = course.name
+        content.text = viewModel.courseName
         
-        content.secondaryText = """
-                                Уроки: \(course.numberOfLessons)
-                                Тесты: \(course.numberOfTests)
-                                """
-        
-        guard let imageData = NetworkManager.shared.fetchImage(url: course.imageUrl) else { return }
-        content.image = UIImage(data: imageData)
-        
+        if let imageData = viewModel.imageData {
+            content.image = UIImage(data: imageData)
+        }
+
         contentConfiguration = content
     }
 }

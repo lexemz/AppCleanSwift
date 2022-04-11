@@ -11,15 +11,19 @@
 //
 
 protocol CourseListPresentationLogic {
-    func presentSomething(response: CourseList.Something.Response)
+    func presentCourses(response: CourseList.ShowCourses.Response)
 }
 
 class CourseListPresenter: CourseListPresentationLogic {
     
     weak var viewController: CourseListDisplayLogic?
     
-    func presentSomething(response: CourseList.Something.Response) {
-        let viewModel = CourseList.Something.ViewModel()
+    func presentCourses(response: CourseList.ShowCourses.Response) {
+        var rows: [CourseCellViewModel] = []
+        response.courses.forEach { course in
+            rows.append(CourseCellViewModel(course: course))
+        }
+        let viewModel = CourseList.ShowCourses.ViewModel(rows: rows)
         viewController?.displayCourses(viewModel: viewModel)
     }
 }

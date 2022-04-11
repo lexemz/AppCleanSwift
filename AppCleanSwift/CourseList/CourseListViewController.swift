@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CourseListDisplayLogic: AnyObject {
-    func displayCourses(viewModel: CourseList.Something.ViewModel)
+    func displayCourses(viewModel: CourseList.ShowCourses.ViewModel)
 }
 
 class CourseListViewController: UITableViewController {
@@ -21,7 +21,7 @@ class CourseListViewController: UITableViewController {
     var interactor: CourseListBusinessLogic?
     var router: (NSObjectProtocol & CourseListRoutingLogic & CourseListDataPassing)?
     
-    private var courses: [Course] = []
+    private var rows: [CourseCellViewModelProtocol] = []
     
     // init не нужны, так как это стартовый экран
     
@@ -29,19 +29,16 @@ class CourseListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         CourseListConfigurator.shared.configure(with: self)
-        tableView.rowHeight = 100
         title = "Courses"
         
         getCourses()
-        
-        doSomething()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let courseDetailsVC = segue.destination as? CourseDetailsViewController else { return }
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        courseDetailsVC.course = courses[indexPath.row]
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let courseDetailsVC = segue.destination as? CourseDetailsViewController else { return }
+//        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+//        courseDetailsVC.course = courses[indexPath.row]
+//    }
     
     // MARK: Routing
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,28 +49,16 @@ class CourseListViewController: UITableViewController {
 //            }
 //        }
 //    }
-        
-    private func doSomething() {
-        let request = CourseList.Something.Request()
-        interactor?.doSomething(request: request)
-    }
     
     private func getCourses() {
-        NetworkManager.shared.fetchCourses { [weak self] result in
-            switch result {
-            case .success(let courses):
-                self?.courses = courses
-                self?.tableView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
-        }
+        interactor?.fetchCourses()
     }
 }
 
 extension CourseListViewController: CourseListDisplayLogic {
-    func displayCourses(viewModel: CourseList.Something.ViewModel) {
-        
+    func displayCourses(viewModel: CourseList.ShowCourses.ViewModel) {
+        rows = viewModel.rows
+        tableView.reloadData()
     }
 }
 
@@ -82,13 +67,26 @@ extension CourseListViewController: CourseListDisplayLogic {
 extension CourseListViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        courses.count
+        rows.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as! CourseListViewCell
-        let course = courses[indexPath.row]
-        cell.configure(with: course)
+        let cellViewModel = rows[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CourseListViewCell
+        
+        cell.viewModel = cellViewModel
+        
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension CourseListViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        CGFloat(rows[indexPath.row].height)
     }
 }

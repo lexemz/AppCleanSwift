@@ -14,8 +14,6 @@
 		780C30562802E4C900250B5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 780C30552802E4C900250B5D /* Main.storyboard */; };
 		780C305A2802E4E300250B5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C30582802E4E300250B5D /* NetworkManager.swift */; };
 		780C305B2802E4E300250B5D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C30592802E4E300250B5D /* UserDefaultsManager.swift */; };
-		780C305F2802E4EB00250B5D /* DetailCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C305D2802E4EB00250B5D /* DetailCourseViewController.swift */; };
-		780C30602802E4EB00250B5D /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C305E2802E4EB00250B5D /* CoursesTableViewController.swift */; };
 		780C30632802E4F000250B5D /* CourseListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C30622802E4F000250B5D /* CourseListViewCell.swift */; };
 		780C30662802E50B00250B5D /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C30652802E50B00250B5D /* Course.swift */; };
 		780C30712802F37800250B5D /* CourseDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C306B2802F37800250B5D /* CourseDetailsPresenter.swift */; };
@@ -43,8 +41,6 @@
 		780C30552802E4C900250B5D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		780C30582802E4E300250B5D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		780C30592802E4E300250B5D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
-		780C305D2802E4EB00250B5D /* DetailCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCourseViewController.swift; sourceTree = "<group>"; };
-		780C305E2802E4EB00250B5D /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
 		780C30622802E4F000250B5D /* CourseListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseListViewCell.swift; sourceTree = "<group>"; };
 		780C30652802E50B00250B5D /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		780C306B2802F37800250B5D /* CourseDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -94,7 +90,6 @@
 			children = (
 				78491A89280487BA0042E0E5 /* CourseList */,
 				780C306A2802F35D00250B5D /* CourseDetails */,
-				780C305C2802E4EB00250B5D /* ViewControllers */,
 				780C30642802E50B00250B5D /* Models */,
 				780C30572802E4E300250B5D /* Services */,
 				780C30672802E51C00250B5D /* Storyboards */,
@@ -111,15 +106,6 @@
 				780C30592802E4E300250B5D /* UserDefaultsManager.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		780C305C2802E4EB00250B5D /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				780C305E2802E4EB00250B5D /* CoursesTableViewController.swift */,
-				780C305D2802E4EB00250B5D /* DetailCourseViewController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		780C30642802E50B00250B5D /* Models */ = {
@@ -277,9 +263,7 @@
 				780C305B2802E4E300250B5D /* UserDefaultsManager.swift in Sources */,
 				78491A91280487DF0042E0E5 /* CourseListWorker.swift in Sources */,
 				780C30712802F37800250B5D /* CourseDetailsPresenter.swift in Sources */,
-				780C305F2802E4EB00250B5D /* DetailCourseViewController.swift in Sources */,
 				780C30742802F37800250B5D /* CourseDetailsModels.swift in Sources */,
-				780C30602802E4EB00250B5D /* CoursesTableViewController.swift in Sources */,
 				780C30442802E4A600250B5D /* SceneDelegate.swift in Sources */,
 				78491A97280489FE0042E0E5 /* CourseListConfigurator.swift in Sources */,
 				780C30632802E4F000250B5D /* CourseListViewCell.swift in Sources */,
