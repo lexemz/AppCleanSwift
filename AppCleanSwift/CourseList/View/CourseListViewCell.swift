@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CourseTableViewCell: UITableViewCell {
+class CourseListViewCell: UITableViewCell {
     func configure(with course: Course) {
         var content = defaultContentConfiguration()
         
