@@ -37,8 +37,8 @@ class NetworkManager {
         }.resume()
     }
     
-    func fetchImage(url: URL) -> Data? {
-//        guard let url = URL(string: url) else { return nil }
+    func fetchImage(url: URL?) -> Data? {
+        guard let url = url else { return nil }
         return try? Data(contentsOf: url)
     }
 }

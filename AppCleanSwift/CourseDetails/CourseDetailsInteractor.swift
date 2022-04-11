@@ -11,23 +11,37 @@
 //
 
 protocol CourseDetailsBusinessLogic {
-    func doSomething(request: CourseDetails.ShowDetails.Request)
+    var isFavorite: Bool { get }
+    func provideCourseDetails(request: CourseDetails.ShowDetails.Request)
 }
 
+// свойства для хранения данных, которые нужно подготавливать для передачи в Presenter
 protocol CourseDetailsDataStore {
-    
+    var course: Course? { get }
 }
 
 class CourseDetailsInteractor: CourseDetailsBusinessLogic, CourseDetailsDataStore {
     
     var presenter: CourseDetailsPresentationLogic?
     var worker: CourseDetailsWorker?
+    var course: Course?
+    var isFavorite: Bool = false
     
-    func doSomething(request: CourseDetails.ShowDetails.Request) {
+    func provideCourseDetails(request: CourseDetails.ShowDetails.Request) {
+        course = request.course
         worker = CourseDetailsWorker()
-        worker?.doSomeWork()
         
-        let response = CourseDetails.ShowDetails.Response()
-        presenter?.presentSomething(response: response)
+        isFavorite = worker?.getFavoriteStatus(for: course?.name ?? "") ?? false
+        let imageData = worker?.getImageFromNet(withURL: course?.imageUrl)
+        
+        let response = CourseDetails.ShowDetails.Response(
+            courseName: course?.name,
+            lessonsCount: course?.numberOfLessons,
+            testsCount: course?.numberOfTests,
+            imageData: imageData,
+            isFavotite: isFavorite
+        )
+        
+        presenter?.presentCourseDetails(response: response)
     }
 }

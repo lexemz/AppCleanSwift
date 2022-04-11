@@ -10,16 +10,28 @@
 //  see http://clean-swift.com
 //
 
+import Foundation
+
 protocol CourseDetailsPresentationLogic {
-    func presentSomething(response: CourseDetails.ShowDetails.Response)
+    func presentCourseDetails(response: CourseDetails.ShowDetails.Response)
 }
 
 class CourseDetailsPresenter: CourseDetailsPresentationLogic {
-    
     weak var viewController: CourseDetailsDisplayLogic?
-    
-    func presentSomething(response: CourseDetails.ShowDetails.Response) {
-        let viewModel = CourseDetails.ShowDetails.ViewModel()
+
+    func presentCourseDetails(response: CourseDetails.ShowDetails.Response) {
+        let courseName = response.courseName ?? "Course name is empty"
+        let lessonsCount = "Number of lessons \(response.lessonsCount ?? 0)"
+        let testsCount = "Number of tests \(response.testsCount ?? 0)"
+        let imageData = response.imageData ?? Data()
+        
+        let viewModel = CourseDetails.ShowDetails.ViewModel(
+            courseName: courseName,
+            lessonsCount: lessonsCount,
+            testsCount: testsCount,
+            imageData: imageData,
+            isFavorite: response.isFavotite
+        )
         viewController?.displayCourseDetails(viewModel: viewModel)
     }
 }

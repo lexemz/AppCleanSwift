@@ -97,7 +97,6 @@
                                 </state>
                                 <connections>
                                     <action selector="likeButtonIsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5hh-db-duw"/>
-                                    <action selector="likeButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="goy-ZD-VS5"/>
                                 </connections>
                             </button>
                         </subviews>

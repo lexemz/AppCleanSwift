@@ -27,8 +27,6 @@ class CourseDetailsViewController: UIViewController {
     var router: (NSObjectProtocol & CourseDetailsRoutingLogic & CourseDetailsDataPassing)?
     var course: Course!
     
-    private var isFavorite = false
-    
     // Данная сцена отображается при переходе
     // В инициализаторах вызывается метод для сборки сцены
     // MARK: Object lifecycle
@@ -46,20 +44,16 @@ class CourseDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadFavoriteStatus()
-        setupUI()
         passRequest()
     }
     
     @IBAction func likeButtonIsPressed(_ sender: Any) {
-        isFavorite.toggle()
-        setStatusForLikeButton()
-        UserDefaultsManager.shared.saveDataUD(status: isFavorite, courseName: course.name)
+        
     }
     
     private func passRequest() {
-        let request = CourseDetails.ShowDetails.Request()
-        interactor?.doSomething(request: request)
+        let request = CourseDetails.ShowDetails.Request(course: course)
+        interactor?.provideCourseDetails(request: request)
     }
     
     // MARK: Setup
@@ -76,29 +70,15 @@ class CourseDetailsViewController: UIViewController {
         router.dataStore = interactor
     }
     
-    private func loadFavoriteStatus() {
-        isFavorite = UserDefaultsManager.shared.getDataUD(courseName: course.name)
-    }
-    
-    private func setupUI() {
-        title = course.name
-        lessonsCountLabel.text = "Number of lessons \(course.numberOfLessons)"
-        testsCountLabel.text = "Number of tests \(course.numberOfTests)"
-        
-        if let imageData = NetworkManager.shared.fetchImage(url: course.imageUrl) {
-            courseImageView.image = UIImage(data: imageData)
-        }
-        
-        setStatusForLikeButton()
-    }
-    
-    private func setStatusForLikeButton() {
-        likeButton.tintColor = isFavorite ? .red : .gray
-    }
 }
 
 extension CourseDetailsViewController: CourseDetailsDisplayLogic {
     func displayCourseDetails(viewModel: CourseDetails.ShowDetails.ViewModel) {
+        title = viewModel.courseName
+        lessonsCountLabel.text = viewModel.lessonsCount
+        testsCountLabel.text = viewModel.testsCount
+        courseImageView.image = UIImage(data: viewModel.imageData)
         
+        likeButton.tintColor = viewModel.isFavorite ? .red : .gray
     }
 }

@@ -10,8 +10,14 @@
 //  see http://clean-swift.com
 //
 
+import Foundation
+
 class CourseDetailsWorker {
-    func doSomeWork() {
-        
+    func getImageFromNet(withURL url: URL?) -> Data? {
+        NetworkManager.shared.fetchImage(url: url)
+    }
+    
+    func getFavoriteStatus(for courseName: String) -> Bool {
+        UserDefaultsManager.shared.getDataUD(courseName: courseName)
     }
 }

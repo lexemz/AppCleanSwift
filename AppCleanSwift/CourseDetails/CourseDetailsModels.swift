@@ -10,20 +10,32 @@
 //  see http://clean-swift.com
 //
 
+import Foundation
+
 enum CourseDetails {
  
     // MARK: Use cases
     enum ShowDetails {
         struct Request {
-            
+            let course: Course
         }
         
         struct Response {
-            
+            // опционалы, так как данные могут не вернуться,
+            // а что в этом случае делать, решает presenter
+            let courseName: String?
+            let lessonsCount: Int?
+            let testsCount: Int?
+            let imageData: Data?
+            let isFavotite: Bool
         }
         
         struct ViewModel {
-            
+            let courseName: String
+            let lessonsCount: String
+            let testsCount: String
+            let imageData: Data
+            let isFavorite: Bool
         }
     }
 }
