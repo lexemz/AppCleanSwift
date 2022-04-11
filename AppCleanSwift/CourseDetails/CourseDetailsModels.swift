@@ -38,4 +38,17 @@ enum CourseDetails {
             let isFavorite: Bool
         }
     }
+    
+    enum SetFavoriteStatus {
+        // Request нет, так как никакие данные для
+        // изменения состояния кнопки не требуются!
+        
+        struct Response {
+            let isFavorite: Bool
+        }
+        
+        struct ViewModel {
+            let isFavorite: Bool
+        }
+    }
 }

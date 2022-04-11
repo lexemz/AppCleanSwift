@@ -13,6 +13,7 @@
 protocol CourseDetailsBusinessLogic {
     var isFavorite: Bool { get }
     func provideCourseDetails(request: CourseDetails.ShowDetails.Request)
+    func setFavoriteStatus()
 }
 
 // свойства для хранения данных, которые нужно подготавливать для передачи в Presenter
@@ -43,5 +44,16 @@ class CourseDetailsInteractor: CourseDetailsBusinessLogic, CourseDetailsDataStor
         )
         
         presenter?.presentCourseDetails(response: response)
+    }
+    
+    func setFavoriteStatus() {
+        isFavorite.toggle()
+        worker?.setFavoriteStatus(
+            for: course?.name ?? "",
+            with: isFavorite
+        )
+        
+        let response = CourseDetails.SetFavoriteStatus.Response(isFavorite: isFavorite)
+        presenter?.presentFavotiteStatus(response: response)
     }
 }

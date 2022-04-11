@@ -20,4 +20,8 @@ class CourseDetailsWorker {
     func getFavoriteStatus(for courseName: String) -> Bool {
         UserDefaultsManager.shared.getDataUD(courseName: courseName)
     }
+    
+    func setFavoriteStatus(for courseName: String, with status: Bool) {
+        UserDefaultsManager.shared.saveDataUD(status: status, courseName: courseName)
+    }
 }

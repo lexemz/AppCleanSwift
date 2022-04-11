@@ -14,6 +14,7 @@ import Foundation
 
 protocol CourseDetailsPresentationLogic {
     func presentCourseDetails(response: CourseDetails.ShowDetails.Response)
+    func presentFavotiteStatus(response: CourseDetails.SetFavoriteStatus.Response)
 }
 
 class CourseDetailsPresenter: CourseDetailsPresentationLogic {
@@ -33,5 +34,10 @@ class CourseDetailsPresenter: CourseDetailsPresentationLogic {
             isFavorite: response.isFavotite
         )
         viewController?.displayCourseDetails(viewModel: viewModel)
+    }
+    
+    func presentFavotiteStatus(response: CourseDetails.SetFavoriteStatus.Response) {
+        let viewModel = CourseDetails.SetFavoriteStatus.ViewModel(isFavorite: response.isFavorite)
+        viewController?.displayFavoriteStatus(viewModel: viewModel)
     }
 }

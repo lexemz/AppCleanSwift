@@ -14,6 +14,7 @@ import UIKit
 
 protocol CourseDetailsDisplayLogic: AnyObject {
     func displayCourseDetails(viewModel: CourseDetails.ShowDetails.ViewModel)
+    func displayFavoriteStatus(viewModel: CourseDetails.SetFavoriteStatus.ViewModel)
 }
 
 class CourseDetailsViewController: UIViewController {
@@ -48,7 +49,7 @@ class CourseDetailsViewController: UIViewController {
     }
     
     @IBAction func likeButtonIsPressed(_ sender: Any) {
-        
+        interactor?.setFavoriteStatus()
     }
     
     private func passRequest() {
@@ -79,6 +80,10 @@ extension CourseDetailsViewController: CourseDetailsDisplayLogic {
         testsCountLabel.text = viewModel.testsCount
         courseImageView.image = UIImage(data: viewModel.imageData)
         
+        likeButton.tintColor = viewModel.isFavorite ? .red : .gray
+    }
+    
+    func displayFavoriteStatus(viewModel: CourseDetails.SetFavoriteStatus.ViewModel) {
         likeButton.tintColor = viewModel.isFavorite ? .red : .gray
     }
 }
