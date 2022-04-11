@@ -16,9 +16,6 @@ enum CourseDetails {
  
     // MARK: Use cases
     enum ShowDetails {
-        struct Request {
-            let course: Course
-        }
         
         struct Response {
             // опционалы, так как данные могут не вернуться,

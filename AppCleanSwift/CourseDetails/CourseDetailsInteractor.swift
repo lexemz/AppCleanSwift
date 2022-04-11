@@ -12,13 +12,13 @@
 
 protocol CourseDetailsBusinessLogic {
     var isFavorite: Bool { get }
-    func provideCourseDetails(request: CourseDetails.ShowDetails.Request)
+    func provideCourseDetails()
     func setFavoriteStatus()
 }
 
 // свойства для хранения данных, которые нужно подготавливать для передачи в Presenter
 protocol CourseDetailsDataStore {
-    var course: Course? { get }
+    var course: Course? { get set }
 }
 
 class CourseDetailsInteractor: CourseDetailsBusinessLogic, CourseDetailsDataStore {
@@ -28,8 +28,7 @@ class CourseDetailsInteractor: CourseDetailsBusinessLogic, CourseDetailsDataStor
     var course: Course?
     var isFavorite: Bool = false
     
-    func provideCourseDetails(request: CourseDetails.ShowDetails.Request) {
-        course = request.course
+    func provideCourseDetails() {
         worker = CourseDetailsWorker()
         
         isFavorite = worker?.getFavoriteStatus(for: course?.name ?? "") ?? false

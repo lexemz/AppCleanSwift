@@ -26,7 +26,6 @@ class CourseDetailsViewController: UIViewController {
     
     var interactor: CourseDetailsBusinessLogic?
     var router: (NSObjectProtocol & CourseDetailsRoutingLogic & CourseDetailsDataPassing)?
-    var course: Course!
     
     // Данная сцена отображается при переходе
     // В инициализаторах вызывается метод для сборки сцены
@@ -53,8 +52,7 @@ class CourseDetailsViewController: UIViewController {
     }
     
     private func passRequest() {
-        let request = CourseDetails.ShowDetails.Request(course: course)
-        interactor?.provideCourseDetails(request: request)
+        interactor?.provideCourseDetails()
     }
     
     // MARK: Setup

@@ -34,21 +34,16 @@ class CourseListViewController: UITableViewController {
         getCourses()
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let courseDetailsVC = segue.destination as? CourseDetailsViewController else { return }
-//        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-//        courseDetailsVC.course = courses[indexPath.row]
-//    }
-    
     // MARK: Routing
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let scene = segue.identifier {
-//            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-//            if let router = router, router.responds(to: selector) {
-//                router.perform(selector, with: segue)
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            print(scene)
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
     
     private func getCourses() {
         interactor?.fetchCourses()
