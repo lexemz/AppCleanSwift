@@ -29,6 +29,7 @@
 		78491A94280487DF0042E0E5 /* CourseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78491A8E280487DF0042E0E5 /* CourseListViewController.swift */; };
 		78491A95280487DF0042E0E5 /* CourseListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78491A8F280487DF0042E0E5 /* CourseListInteractor.swift */; };
 		78491A97280489FE0042E0E5 /* CourseListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78491A96280489FE0042E0E5 /* CourseListConfigurator.swift */; };
+		78491A9A2804B98C0042E0E5 /* CourseDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78491A992804B98C0042E0E5 /* CourseDetailsConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		78491A8E280487DF0042E0E5 /* CourseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListViewController.swift; sourceTree = "<group>"; };
 		78491A8F280487DF0042E0E5 /* CourseListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListInteractor.swift; sourceTree = "<group>"; };
 		78491A96280489FE0042E0E5 /* CourseListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListConfigurator.swift; sourceTree = "<group>"; };
+		78491A992804B98C0042E0E5 /* CourseDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				780C306C2802F37800250B5D /* CourseDetailsWorker.swift */,
 				780C306D2802F37800250B5D /* CourseDetailsRouter.swift */,
 				780C306E2802F37800250B5D /* CourseDetailsModels.swift */,
+				78491A992804B98C0042E0E5 /* CourseDetailsConfigurator.swift */,
 			);
 			path = CourseDetails;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				780C30632802E4F000250B5D /* CourseListViewCell.swift in Sources */,
 				78491A93280487DF0042E0E5 /* CourseListModels.swift in Sources */,
 				780C30732802F37800250B5D /* CourseDetailsRouter.swift in Sources */,
+				78491A9A2804B98C0042E0E5 /* CourseDetailsConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
