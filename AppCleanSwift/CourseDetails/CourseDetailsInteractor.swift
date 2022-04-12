@@ -11,7 +11,6 @@
 //
 
 protocol CourseDetailsBusinessLogic {
-    var isFavorite: Bool { get }
     func provideCourseDetails()
     func setFavoriteStatus()
 }
@@ -20,6 +19,7 @@ protocol CourseDetailsBusinessLogic {
 // в это свойство передаются данные с другого экрана, в классе Router
 protocol CourseDetailsDataStore {
     var course: Course? { get set }
+    var isFavorite: Bool { get }
 }
 
 class CourseDetailsInteractor: CourseDetailsBusinessLogic, CourseDetailsDataStore {
