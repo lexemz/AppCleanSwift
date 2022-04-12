@@ -17,6 +17,7 @@ protocol CourseDetailsBusinessLogic {
 }
 
 // свойства для хранения данных, которые нужно подготавливать для передачи в Presenter
+// в это свойство передаются данные с другого экрана, в классе Router
 protocol CourseDetailsDataStore {
     var course: Course? { get set }
 }

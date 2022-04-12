@@ -21,7 +21,6 @@ protocol CourseListDataStore {
 class CourseListInteractor: CourseListBusinessLogic, CourseListDataStore {
     
     var presenter: CourseListPresentationLogic?
-    var worker: CourseListWorker?
     
     var courses: [Course] = []
     

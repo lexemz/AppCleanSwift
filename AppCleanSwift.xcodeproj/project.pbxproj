@@ -23,7 +23,6 @@
 		780C30752802F37800250B5D /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C306F2802F37800250B5D /* CourseDetailsViewController.swift */; };
 		780C30762802F37800250B5D /* CourseDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C30702802F37800250B5D /* CourseDetailsInteractor.swift */; };
 		78491A90280487DF0042E0E5 /* CourseListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78491A8A280487DF0042E0E5 /* CourseListPresenter.swift */; };
-		78491A91280487DF0042E0E5 /* CourseListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78491A8B280487DF0042E0E5 /* CourseListWorker.swift */; };
 		78491A92280487DF0042E0E5 /* CourseListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78491A8C280487DF0042E0E5 /* CourseListRouter.swift */; };
 		78491A93280487DF0042E0E5 /* CourseListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78491A8D280487DF0042E0E5 /* CourseListModels.swift */; };
 		78491A94280487DF0042E0E5 /* CourseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78491A8E280487DF0042E0E5 /* CourseListViewController.swift */; };
@@ -51,7 +50,6 @@
 		780C306F2802F37800250B5D /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
 		780C30702802F37800250B5D /* CourseDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsInteractor.swift; sourceTree = "<group>"; };
 		78491A8A280487DF0042E0E5 /* CourseListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListPresenter.swift; sourceTree = "<group>"; };
-		78491A8B280487DF0042E0E5 /* CourseListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListWorker.swift; sourceTree = "<group>"; };
 		78491A8C280487DF0042E0E5 /* CourseListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListRouter.swift; sourceTree = "<group>"; };
 		78491A8D280487DF0042E0E5 /* CourseListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListModels.swift; sourceTree = "<group>"; };
 		78491A8E280487DF0042E0E5 /* CourseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				78491A8E280487DF0042E0E5 /* CourseListViewController.swift */,
 				78491A8F280487DF0042E0E5 /* CourseListInteractor.swift */,
 				78491A8A280487DF0042E0E5 /* CourseListPresenter.swift */,
-				78491A8B280487DF0042E0E5 /* CourseListWorker.swift */,
 				78491A8C280487DF0042E0E5 /* CourseListRouter.swift */,
 				78491A8D280487DF0042E0E5 /* CourseListModels.swift */,
 				78491A96280489FE0042E0E5 /* CourseListConfigurator.swift */,
@@ -264,7 +261,6 @@
 				780C30762802F37800250B5D /* CourseDetailsInteractor.swift in Sources */,
 				780C30722802F37800250B5D /* CourseDetailsWorker.swift in Sources */,
 				780C305B2802E4E300250B5D /* UserDefaultsManager.swift in Sources */,
-				78491A91280487DF0042E0E5 /* CourseListWorker.swift in Sources */,
 				780C30712802F37800250B5D /* CourseDetailsPresenter.swift in Sources */,
 				780C30742802F37800250B5D /* CourseDetailsModels.swift in Sources */,
 				780C30442802E4A600250B5D /* SceneDelegate.swift in Sources */,
